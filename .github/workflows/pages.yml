@@ -3,7 +3,7 @@ name: Deploy project brief
 on:
   push:
     branches: [main]
-    paths: ["docs/index.html", ".github/workflows/pages.yml"]
+    paths: ["docs/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:
