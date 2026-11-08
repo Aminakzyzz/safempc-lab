@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SafeMPC Lab | Project Brief</title>
+    <style>
+      :root { color-scheme: dark; --ink:#e9efff; --muted:#aab7d5; --card:#111b32; --line:#263a64; --accent:#64d7ff; --green:#62e6a7; }
+      * { box-sizing:border-box; } body { margin:0; background:radial-gradient(circle at top,#192b54,#070d1a 55%); color:var(--ink); font:16px/1.55 system-ui,sans-serif; }
+      main { max-width:760px; margin:auto; padding:44px 20px 72px; } .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }
+      h1 { font-size:clamp(2.4rem,10vw,4.8rem); line-height:.96; margin:.35rem 0 1rem; } h2 { margin-top:2.4rem; font-size:1.35rem; } p { color:var(--muted); }
+      .card { background:color-mix(in srgb,var(--card) 88%,transparent); border:1px solid var(--line); border-radius:18px; padding:20px; margin:14px 0; }
+      .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; } strong { color:var(--ink); } .ok { color:var(--green); font-weight:700; } a { color:var(--accent); }
+      ol { padding-left:1.35rem; } li { margin:.7rem 0; color:var(--muted); } code { color:var(--accent); }
+    </style>
+  </head>
+  <body><main>
+    <div class="eyebrow">Robotics control portfolio</div>
+    <h1>SafeMPC<br>Lab</h1>
+    <p>A transparent, reproducible benchmark for safe differential-drive robot navigation.</p>
+    <div class="grid">
+      <div class="card"><strong>Question</strong><br><p>How do controller choice, constraints, and model mismatch affect tracking and safety?</p></div>
+      <div class="card"><strong>Why it matters</strong><br><p>It makes control-theory preparation visible through code, tests, experiments, and technical documentation.</p></div>
+    </div>
+    <h2>Current build</h2>
+    <div class="card"><span class="ok">● Implemented</span><ol><li>Differential-drive dynamics with Euler and RK4 integration</li><li>Pure-pursuit baseline and discrete-time LQR tracker</li><li>Input limits, obstacle safety monitor, deterministic tests</li><li>Public repository, CI workflow, and Modal experiment scaffold</li></ol></div>
+    <h2>Next milestones</h2>
+    <div class="card"><ol><li>Constrained QP MPC and fair controller comparison</li><li>Monte-Carlo parameter sweeps on Modal</li><li>Control-barrier-function safety layer</li><li>ROS 2 simulation wrapper and latency report</li></ol></div>
+    <h2>TUM relevance</h2>
+    <p>TUM describes its Robotics, Cognition, Intelligence programme as interdisciplinary and identifies classical robot control among its foundations. This project supports an application portfolio but does not guarantee admission.</p>
+    <p><a href="https://github.com/Aminakzyzz/safempc-lab">View source on GitHub →</a></p>
+  </main></body>
+</html>

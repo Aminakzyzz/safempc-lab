@@ -2,7 +2,7 @@
 
 **A reproducible control-theory benchmark for safe mobile-robot navigation.**
 
-SafeMPC Lab compares a geometric baseline, linear-quadratic regulation (LQR), and constrained model predictive control (MPC) on the same differential-drive robot. The project focuses on tracking accuracy, actuator limits, collision margin, and robustness to model mismatch.
+SafeMPC Lab is a control-theory benchmark for a differential-drive robot. Its first release implements a geometric baseline, linear-quadratic regulation (LQR), and a safety monitor; constrained model predictive control (MPC) is the next milestone. The project focuses on tracking accuracy, actuator limits, collision margin, and robustness to model mismatch.
 
 > Built as a portfolio project for robotics and autonomous-systems study. It is a simulator and research prototype, not safety-certified control software.
 

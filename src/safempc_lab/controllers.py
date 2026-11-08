@@ -28,7 +28,7 @@ class LQRTracker:
     iterations: int = 100
 
     @classmethod
-    def default(cls) -> "LQRTracker":
+    def default(cls) -> LQRTracker:
         return cls(q=np.diag([8.0, 8.0, 3.0]), r=np.diag([0.5, 0.3]))
 
     def gain(self, robot: DifferentialDrive, state: RobotState) -> np.ndarray:
