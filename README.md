@@ -2,7 +2,7 @@
 
 **A reproducible control-theory benchmark for safe mobile-robot navigation.**
 
-SafeMPC Lab is a control-theory benchmark for a differential-drive robot. Its first release implements a geometric baseline, linear-quadratic regulation (LQR), and a safety monitor; constrained model predictive control (MPC) is the next milestone. The project focuses on tracking accuracy, actuator limits, collision margin, and robustness to model mismatch.
+SafeMPC Lab is a control-theory benchmark for a differential-drive robot. Its first release implements a geometric baseline, linear-quadratic regulation (LQR), box-constrained linear MPC, and a safety monitor. The project focuses on tracking accuracy, actuator limits, collision margin, and robustness to model mismatch.
 
 > Built as a portfolio project for robotics and autonomous-systems study. It is a simulator and research prototype, not safety-certified control software.
 
@@ -14,7 +14,7 @@ The TUM M.Sc. Robotics, Cognition, Intelligence programme names classical robot 
 
 - Kinematic differential-drive model with Euler and RK4 integration
 - Pure-pursuit baseline and discrete-time LQR tracker
-- Constrained MPC formulation roadmap and obstacle safety monitor
+- Box-constrained, finite-horizon linear MPC and obstacle safety monitor
 - Deterministic scenario definitions and tests for dynamics and controller limits
 - Modal-ready parameter-sweep entry point for Monte-Carlo experiments
 
@@ -49,11 +49,12 @@ Modal authentication is not configured on this machine. No remote compute has st
 ## Roadmap
 
 - [x] Differential-drive model, baseline controller, LQR, safety monitor
-- [ ] Convex QP MPC solver and benchmark report
+- [x] Box-constrained linear MPC solver
+- [ ] CBF-QP obstacle constraints and benchmark report
 - [ ] Modal Monte-Carlo sweep with persisted artifacts
 - [ ] Nonlinear MPC using CasADi/acados
 - [ ] ROS 2 wrapper and Gazebo/MuJoCo integration
 
 ## Research and license
 
-See [docs/research.md](docs/research.md) for primary sources and a TUM-relevance note. Licensed under [MIT](LICENSE).
+See [docs/research.md](docs/research.md) for primary sources, [docs/validation.md](docs/validation.md) for current limitations, and [MIT](LICENSE) for the license.

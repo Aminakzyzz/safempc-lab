@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .controllers import LQRTracker, PurePursuit, safety_filter
+from .controllers import LQRTracker, MPCTracker, PurePursuit, safety_filter
 from .models import DifferentialDrive, RobotState, wrap_angle
 
 
@@ -29,10 +29,15 @@ def simulate(controller: str = "lqr", steps: int = 400) -> Metrics:
     path = figure_eight(steps + 1)
     obstacle = np.array([0.35, 0.05])
     state = RobotState(-0.1, -0.2, 0.0)
-    lqr, pursuit = LQRTracker.default(), PurePursuit()
+    lqr, mpc, pursuit = LQRTracker.default(), MPCTracker.default(), PurePursuit()
     errors, headings, clearances, efforts = [], [], [], []
     for reference in path[:steps]:
-        control = lqr.command(state, reference, robot) if controller == "lqr" else pursuit.command(state, reference, robot)
+        if controller == "lqr":
+            control = lqr.command(state, reference, robot)
+        elif controller == "mpc":
+            control = mpc.command(state, reference, robot)
+        else:
+            control = pursuit.command(state, reference, robot)
         control = safety_filter(control, state, obstacle, safe_radius=0.25, robot=robot)
         state = robot.step(state, control)
         errors.append((state.x - reference[0]) ** 2 + (state.y - reference[1]) ** 2)
@@ -43,5 +48,5 @@ def simulate(controller: str = "lqr", steps: int = 400) -> Metrics:
 
 
 if __name__ == "__main__":
-    for controller in ("pursuit", "lqr"):
+    for controller in ("pursuit", "lqr", "mpc"):
         print(controller, simulate(controller))

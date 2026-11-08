@@ -1,5 +1,6 @@
 import numpy as np
 
+from safempc_lab.controllers import MPCTracker
 from safempc_lab.models import DifferentialDrive, RobotState, wrap_angle
 
 
@@ -17,3 +18,10 @@ def test_input_limits_are_enforced() -> None:
 
 def test_angles_are_wrapped() -> None:
     assert np.isclose(wrap_angle(3.0 * np.pi), -np.pi)
+
+
+def test_mpc_respects_actuator_limits() -> None:
+    robot = DifferentialDrive(v_limit=0.5, omega_limit=0.7)
+    control = MPCTracker.default().command(RobotState(2.0, -2.0, 1.0), np.zeros(4), robot)
+    assert abs(control[0]) <= robot.v_limit
+    assert abs(control[1]) <= robot.omega_limit
