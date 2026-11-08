@@ -8,7 +8,7 @@ except ImportError as exc:
     raise SystemExit("Install the optional dependency first: pip install '.[modal]'") from exc
 
 app = modal.App("safempc-lab-sweep")
-image = modal.Image.debian_slim().pip_install("numpy>=1.24")
+image = modal.Image.debian_slim(python_version="3.11").pip_install("numpy>=1.24")
 
 
 @app.function(image=image)
