@@ -6,10 +6,6 @@ SafeMPC Lab is an adaptive safe-control benchmark for a differential-drive robot
 
 > Built as a portfolio project for robotics and autonomous-systems study. It is a simulator and research prototype, not safety-certified control software.
 
-## Why this project
-
-The TUM M.Sc. Robotics, Cognition, Intelligence programme names classical robot control among the expected foundations. This repository turns that foundation into an auditable artifact: derivations, implementation, tests, benchmark protocol, and an extension path toward nonlinear MPC and ROS 2.
-
 ## Included
 
 - Kinematic differential-drive model with Euler and RK4 integration

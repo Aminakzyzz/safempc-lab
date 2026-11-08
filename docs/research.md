@@ -1,13 +1,5 @@
 # Research map
 
-## Admission relevance, stated precisely
-
-TUM's M.Sc. Robotics, Cognition, Intelligence uses a two-stage aptitude process. TUM describes the programme as interdisciplinary across engineering and computer science, and states that graduates have foundations including classical robot control, perception, image processing, and AI. This project is evidence of relevant preparation; it cannot guarantee admission. Use the current official requirements and aptitude-assessment regulations when applying.
-
-- [TUM programme overview](https://www.tum.de/en/studies/degree-programs/detail/robotics-cognition-intelligence-master-of-science-msc)
-- [TUM CIT programme and application page](https://www.cit.tum.de/en/cit/studies/degree-programs/master-robotics-cognition-intelligence/)
-- [Official RCI regulations (FPSO)](https://www.tum.de/fileadmin/w00bfo/www/Studium/Studienangebot/Lesbare_Fassung/Master/Robotics__Cognition__Intelligence_MA_FPSO_Lesb._Fassung_11022025.pdf)
-
 ## Technical reading sequence
 
 1. **Dynamics and linearisation.** Derive the unicycle model, discretise it, and verify Jacobians with finite differences.

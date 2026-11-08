@@ -12,17 +12,6 @@ The robot receives a nominal command but its true forward-speed gain changes bec
 
 This is an engineering research question, not a claim of a novel theoretical contribution.
 
-## Why this is a stronger portfolio project
-
-It requires more than calling an optimisation library:
-
-1. derive and discretise a robot model;
-2. expose model mismatch in a controlled simulation;
-3. implement online system identification and quantify uncertainty;
-4. formulate a receding-horizon controller with constraints;
-5. distinguish empirical safety performance from formal guarantees;
-6. run repeatable ablations and report negative results.
-
 ## Experimental ladder
 
 1. **Known model:** compare pure pursuit, LQR, and nominal MPC.
