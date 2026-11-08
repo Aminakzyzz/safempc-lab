@@ -15,3 +15,12 @@
 2. Feed the RLS estimate into the MPC prediction model.
 3. Produce comparable tracking, clearance, and control-effort plots.
 4. Replace the geometric obstacle filter with explicit CBF-QP constraints.
+
+## Learning roadmap
+
+1. Reproduce and explain the baseline simulation.
+2. Derive differential-drive kinematics and compare integrators.
+3. Compare geometric control, LQR, and MPC under identical conditions.
+4. Introduce fixed and drifting actuator gain; validate the RLS estimate.
+5. Add explicit CBF-QP safety constraints and document all assumptions.
+6. Run fixed-seed Monte-Carlo experiments on Modal and write results incrementally.
