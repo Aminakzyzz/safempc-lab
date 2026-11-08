@@ -24,3 +24,9 @@
 4. Introduce fixed and drifting actuator gain; validate the RLS estimate.
 5. Add explicit CBF-QP safety constraints and document all assumptions.
 6. Run fixed-seed Monte-Carlo experiments on Modal and write results incrementally.
+
+## Documentation update: research roadmap
+
+- Replaced the initial card-based roadmap with a milestone rail containing six time-boxed gates.
+- Added a system architecture reference: plant, observation, RLS identification, adaptive MPC, CBF safety layer, and experiment logging.
+- Added comparable implementation references and prerequisite theory resources to the public roadmap.

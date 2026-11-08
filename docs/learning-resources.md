@@ -13,3 +13,10 @@ Use this document with the [interactive roadmap](learning-roadmap.html). The ord
 ## Working rule
 
 For each phase, record the question, assumptions, parameters, metrics, result, and limitation in `latex/progress.md`. Add a source to `latex/references.bib` before making a technical claim in the report.
+
+## Comparable implementations
+
+- [PythonRobotics](https://atsushisakai.github.io/PythonRobotics/) for readable LQR and MPC path-tracking baselines.
+- [MPC-CBF](https://github.com/phatcvo/MPC-CBF) for discrete-time MPC with barrier constraints on a mobile robot.
+- [TUM-ITR / WhereToPutSafety](https://github.com/TUM-ITR/WhereToPutSafety) for CBF placement in a networked control architecture.
+- [acados](https://docs.acados.org/features/) for later nonlinear MPC solver work.

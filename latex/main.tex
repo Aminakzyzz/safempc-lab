@@ -52,5 +52,11 @@ The project now provides a clear route from control fundamentals to a stronger r
 \section{Learning and Experiment Roadmap}
 The work proceeds in six milestones: reproduce the baseline; verify the kinematic model; compare geometric control and LQR; study constrained MPC; introduce online actuator-gain identification; and evaluate explicit safety constraints with repeated trials. Each milestone requires a written question, fixed parameters, one reproducible result, and a limitation before the next milestone begins. Detailed progress is maintained in \texttt{progress.md}.
 
+\section{System Architecture}
+The simulator consists of a differential-drive plant with actuator drift, an observation layer, an online recursive least-squares identifier, an adaptive predictive controller, a safety filter, and an experiment log. The identifier estimates the relationship between commanded and observed forward speed. The controller uses this estimate for prediction. The safety component will later become a CBF-QP formulation; until that implementation is validated, it remains an empirical filter rather than a formal guarantee.
+
+\section{Related Implementations}
+PythonRobotics provides LQR and MPC path-tracking examples suitable as baseline references. Existing MPC-CBF mobile-robot implementations demonstrate discrete-time barrier constraints. The project does not copy these implementations; it studies the effect of online actuator-gain identification under a controlled mismatch protocol.
+
 \printbibliography
 \end{document}
