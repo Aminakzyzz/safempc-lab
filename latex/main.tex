@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{references.bib}
+
+\title{SafeMPC Lab: Adaptive Safe Control Under Actuator Drift}
+\author{Amin Akziz}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+SafeMPC Lab is a reproducible learning and benchmarking environment for a differential-drive robot. It compares feedback controllers under actuator-gain mismatch, then studies whether online system identification can improve predictive control without concealing safety limitations.
+\end{abstract}
+
+\section{Introduction}
+Robots are controlled with imperfect models: wheel slip, payload changes, actuator degradation, and sensor noise all make a commanded motion differ from an observed motion. This project uses a deliberately transparent mobile-robot scenario to connect modelling, feedback control, online identification, optimisation, and safety.
+
+\section{Research Question}
+\textit{When a differential-drive robot has an unknown, time-varying actuator gain, how do nominal MPC, fixed-margin robust MPC, and online-adaptive MPC trade tracking accuracy, control effort, feasibility, and obstacle clearance?}
+
+This is an engineering benchmark, not a claim of a novel theoretical contribution. All controllers will receive the same path, actuator limits, noise process, random seed, and compute budget.
+
+\section{Method}
+The simulated robot state is its planar position and heading. The control input is forward speed and angular speed. The current implementation includes a pure-pursuit baseline, a discrete-time LQR tracker, a box-constrained linear MPC baseline, and a recursive least-squares estimator for the scalar relationship between commanded and observed forward speed.
+
+The first model-mismatch experiment will apply a fixed actuator gain; later experiments will drift that gain over time. The estimator updates online from command and measurement pairs. The MPC prediction model will then use the estimate. A future control-barrier-function quadratic-program layer will make obstacle constraints explicit; until that point, the geometric safety filter must not be described as a formal safety guarantee \cite{ames2017cbf}.
+
+\section{Results}
+\subsection{Development Log}
+\begin{itemize}
+  \item \textbf{2026-11-08:} Created the public repository, project documentation, automated CI, and mobile HTML project brief.
+  \item \textbf{2026-11-08:} Implemented differential-drive kinematics with Euler and RK4 integration, pure pursuit, LQR, and box-constrained linear MPC.
+  \item \textbf{2026-11-08:} Added an online recursive least-squares actuator-gain estimator and unit tests for convergence under a constant gain.
+  \item \textbf{2026-11-08:} Validated the project with Ruff and six unit tests; ran a bounded nine-trial Modal cloud sweep.
+\end{itemize}
+
+\subsection{Current Limitations}
+The geometric obstacle filter can still permit negative clearance in the initial figure-eight smoke test. This is an important negative result and defines the next milestone: implement and test explicit safety constraints rather than claiming collision-safe operation.
+
+\section{Conclusion}
+The project now provides a clear route from control fundamentals to a stronger robotics portfolio: establish controller baselines, introduce model mismatch, adapt the prediction model online, evaluate robustness with Monte-Carlo experiments, and document safety assumptions and failures precisely. The next implementation step is an adaptive-MPC experiment with fixed and drifting actuator gain.
+
+\printbibliography
+\end{document}
